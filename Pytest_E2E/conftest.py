@@ -11,9 +11,12 @@ def pytest_addoption(parser):
 def browserInstance(request):
     browser_name = request.config.getoption("browser_name")
     if browser_name == "Chrome":
-        driver = webdriver.Chrome()
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--headless")
+        driver = webdriver.Chrome(options=chrome_options)
         driver.maximize_window()
         driver.implicitly_wait(5)
+
     elif browser_name == "Firefox":
         driver = webdriver.Firefox()
         driver.maximize_window()
