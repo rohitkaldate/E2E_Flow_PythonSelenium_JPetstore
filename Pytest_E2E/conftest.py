@@ -4,7 +4,7 @@ from selenium import webdriver
 ## Added the default browser setting and it is required to add
 def pytest_addoption(parser):
     parser.addoption(
-        "--browser_name", action="store", default="Chrome", help="browser selection"
+        "--browser_name", action="store", default="Firefox", help="browser selection"
     )
 
 @pytest.fixture(scope="function")
